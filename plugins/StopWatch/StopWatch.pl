@@ -3,13 +3,15 @@ package MT::Plugin::OMV::StopWatch;
 #   @see http://www.magicvox.net/
 #           Programmed by Piroli YUKARINOMIYA (MagicVox)
 #           Open MagicVox.net - http://www.magicvox.net/home.php
+#   $Id$
 
 use strict;
 use MT::Template::Context;
 
-use vars qw( $MYNAME $VERSION );
-$MYNAME = (split /::/, __PACKAGE__)[-1];
-$VERSION = '0.11';
+use vars qw( $VENDOR $MYNAME $VERSION );
+($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[-2, -1];
+(my $revision = '$Rev$') =~ s/\D//g;
+$VERSION = '0.11'. ($revision ? ".$revision" : '');
 
 ### Register plugin
 if (MT->can ('add_plugin')) {
